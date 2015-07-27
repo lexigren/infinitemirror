@@ -1,0 +1,41 @@
+<html>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui.js"></script>
+	<script type="text/javascript" src="script.js"></script>		
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<body>
+
+			<!-- перше дзеркало -->
+			<div class="mirror" id="firstMirror">
+				<div class="label">MIRROR</div>
+				
+			</div>
+
+			<!-- об’єкти, які мають віддзеркалюватися, відмічаємо класом reflectable -->
+			<div id="redCircle" class="reflectable redCirle"></div>
+
+			<div id="blueBox" class="reflectable blueBox"></div>
+
+			<!-- створимо два двосторонні об’єкти для відображення в дзеркалі протилежної,
+			 спостерігачу, сторони-->
+			<div id="alice" class="alice reflectable">
+				<img class="side frontSide" src="AliceF.png">
+				<img class="side backSide" src="AliceB.png">
+			</div>
+
+			<div id="card"  class="card reflectable">
+				<img class="side frontSide" src="CorCardF.png">
+				<img class="side backSide" src="CorCardB1.png">
+			</div>
+
+
+			<div id="interface">
+				<button id="hideOverflowButton">Hide overflow</button>
+				<br/>
+				<button id="showOverflowButton">Show overflow</button>
+				<br/>
+				<button id="resetButton">Reset</button>
+			</div>
+
+	</body>
+</html>

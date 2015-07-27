@@ -1,0 +1,124 @@
+body{
+	overflow: hidden;
+	/*додаємо до перспективу до всього тіла документу*/
+	perspective: 600px;
+	background: rgba(0,0,0,0.1);
+}
+
+
+.mirror{
+	position: absolute;
+	
+	width: 600px;
+	height: 900px;
+	
+	/*border: 4px solid black;*/
+
+	/*таку ж перспективу додаємо до об’єкту класу дзеркало*/
+	perspective: 600px;
+	/*за замовчуванням віддаляємо дзеркало від площини проекції на 100 пікселів*/
+	transform: translateZ(-100px);
+	
+	overflow: hidden;
+}
+
+/*додаємо псевдоелемент з ефектом скла, для затемнення зображення дзеркала*/
+.mirror:after{
+
+	content: " ";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	top: 0px;
+	left: 0px;
+
+	background: rgba(0,0,0,0.2);
+
+	
+	box-shadow: 
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25), 
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+
+}
+
+/*напис в дзеркалі*/
+.label{
+	top: 50%;
+	left: 50%;
+	position: fixed;
+}
+
+/*вигляд червоного кола*/
+.redCirle{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: red;
+
+	top:100px;
+	left: 20px;
+}
+
+
+/*синього квадрату*/
+.blueBox{
+	position: absolute;
+	width: 100px;
+	height: 100px;	
+	background: blue;
+
+	top:220px;
+	left: 20px;
+}
+
+/*вигляд першого двостороннього об’єкту*/
+.alice{
+	position: absolute;
+	top:100px;
+	left: 600px; 
+	height: 405px;
+	width: 250px;
+	/*вказуємо, що при повороті, всі вкладені елементи мають
+	зберегти свої відносні позиції*/
+	transform-style: preserve-3d;	
+}
+
+/*вигляд однієї сторони двостороннього об’єкту*/
+.side{	
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	/*вказуємо, що необхідно приховувати обернену до спостерігача сторону*/
+ 	backface-visibility: hidden;
+}
+
+/*обертаємо передню частину двостороннього об’єкту задом до спостерігача*/
+.frontSide{
+	transform: rotateY( 180deg );
+}
+
+
+/*вигляд другого двостороннього об’єкту*/
+.card{
+	position: absolute;
+	top:100px;
+	left: 900px; 
+	height: 498px;
+	width: 299px;
+	transform-style: preserve-3d;	
+}
+
+/*клас оберненого стану*/
+.flipped {
+  transform: rotateY( 180deg );
+}
+
+
+.interface{
+	position: absolute;
+}
